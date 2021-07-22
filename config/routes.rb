@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
 
   scope 'books', controller: :book do
-    scope '/:id' do
+    scope '/:book_id' do
       resources :review
       get 'view'
     end
