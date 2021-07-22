@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       resources :review
       get 'view'
     end
-    get '/all', to: 'book#index'
-    get '', to: 'book#index'
+    get '/all', to: 'book#your_reviews'
+    get '', to: 'book#your_reviews'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

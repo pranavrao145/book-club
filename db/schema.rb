@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_022254) do
+ActiveRecord::Schema.define(version: 2021_07_22_215100) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_022254) do
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "gbook_id"
     t.index ["author_id"], name: "index_reviews_on_author_id"
   end
 
