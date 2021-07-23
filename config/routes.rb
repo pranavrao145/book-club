@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
 
+  get 'reviews', to: 'reviews#my_reviews'
+  get 'reviews/all', to: 'reviews#my_reviews'
+
   scope 'books', controller: :book do
     scope '/:book_id' do
       resources :review
       get 'view'
     end
-    get '/all', to: 'book#index'
-    get '', to: 'book#index'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
