@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5"> 
   <div class="row">
     <div class="col-2">
       <%= image_tag @book_info["volumeInfo"]["imageLinks"]["thumbnail"], style: "width: 100%" %>
@@ -16,23 +16,33 @@
 
       <div class="mt-4">
         <div class="d-grid gap-2">
-          <%= link_to "Write a review for this book", new_review_path(:book_id => @book_info["id"]), class: "btn btn-primary" %>
-          <%= link_to "Read all reviews for this book", review_index_path(:book_id => @book_info["id"]), class: "btn btn-primary" %>
+          <%= link_to "Write a review for this book", new_review_path(book_id: @book_info["id"]), class: "btn btn-primary" %>
+          <%= link_to "Read all reviews for this book", review_index_path(book_id:@book_info["id"]), class: "btn btn-primary" %>
         </div>
       </div>
 
-      <% @book_reviews.each do |book_review| %>
-        <div class="card">
-          <div class="card-header">
-            Featured
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      <% end %>
+      <div class="mt-5">
+        <% unless @book_reviews.empty? %>
+          <% @book_reviews.each do |book_review| %>
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title"> 
+                  <%= book_review.title %>
+                </h3>
+                <p class="card-text">
+                <%= book_review.content %>
+                </p>
+                <%= link_to "View Review", review_path(book_id: @book_info["id"], id: book_review.id) %>
+                <a href="#" class="btn btn-primary">View review</a>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <h1 class="text-center">
+            No reviews yet.
+          </h1>
+        <% end %>
+      </div>
 
     </div>
   </div>

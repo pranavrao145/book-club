@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class ReviewController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :destroy]
 
   # to show all the reviews created by the current user 

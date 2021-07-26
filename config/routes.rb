@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
 
-  get 'reviews', to: 'reviews#my_reviews'
-  get 'reviews/all', to: 'reviews#my_reviews'
+  get 'reviews', to: 'review#my_reviews'
+  get 'reviews/all', to: 'review#my_reviews'
 
   scope 'books', controller: :book do
     scope '/:book_id' do
