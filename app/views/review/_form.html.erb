@@ -1,0 +1,14 @@
+<%= simple_form_for @review, url: url_for(action: :create, controller: :review) do |f| %>
+  <div class="mb-3">
+    <%= f.input :rating, collection: 1..5 %>
+  </div>
+  <div class="mb-3">
+    <%= f.input :title %>
+  </div>
+  <div class="mb-3">
+    <%= f.input :content %>
+  </div>
+  <div class="mb-3">
+    <%= f.button :submit, class: "btn btn-primary"  %>
+  </div>
+<% end %>
