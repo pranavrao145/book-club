@@ -9,6 +9,11 @@
     </div>
 
     <div class="mb-3">
+      <%= f.label :username, class: "form-label" %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
       <%= f.label :password, class: "form-label" %>
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>

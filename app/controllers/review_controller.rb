@@ -8,6 +8,8 @@ class ReviewController < ApplicationController
   end
 
   def show
+    @title = 'View Review'
+    find_review
   end
 
   def new
