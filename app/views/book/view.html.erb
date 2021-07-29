@@ -3,7 +3,7 @@
     <div class="col-2">
       <%= image_tag @book_info["volumeInfo"]["imageLinks"]["thumbnail"], style: "width: 100%" %>
       <h5 class="mt-3">
-        <%= @average_rating %>
+        Average rating: <%= @average_rating %>
       </h5>
     </div>
     <div class="col">
@@ -17,14 +17,14 @@
       <div class="mt-4">
         <div class="d-grid gap-2">
           <%= link_to "Write a review for this book", new_review_path(book_id: @book_info["id"]), class: "btn btn-primary" %>
-          <%= link_to "Read all reviews for this book", review_index_path(book_id:@book_info["id"]), class: "btn btn-primary" %>
+          <%= link_to "Read all reviews for this book", review_index_path(book_id: @book_info["id"]), class: "btn btn-primary" %>
         </div>
       </div>
 
       <div class="mt-5">
         <% unless @book_reviews.empty? %>
           <% @book_reviews.each do |book_review| %>
-            <div class="card">
+            <div class="card mb-3">
               <div class="card-body">
                 <h3 class="card-title"> 
                   <%= book_review.title %>
@@ -32,8 +32,7 @@
                 <p class="card-text">
                 <%= book_review.content %>
                 </p>
-                <%= link_to "View Review", review_path(book_id: @book_info["id"], id: book_review.id) %>
-                <a href="#" class="btn btn-primary">View review</a>
+                <%= link_to "View Review", review_path(book_id: @book_info["id"], id: book_review.id), class: "btn btn-primary" %>
               </div>
             </div>
           <% end %>

@@ -12,6 +12,7 @@ class ReviewController < ApplicationController
 
   def new
     @review = Review.new
+    @title = 'New Review'
   end
 
   def edit
@@ -28,8 +29,7 @@ class ReviewController < ApplicationController
       flash[:alert] = 'Failed to create review.'
     end
 
-  
-    redirect_to view_path(book_id: params[:gbook_id])
+    redirect_to view_path(book_id: params[:book_id])
   end
 
   def update
