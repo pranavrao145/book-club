@@ -31,6 +31,11 @@ class ReviewController < ApplicationController
     @review.gbook_id = params[:book_id]
     @review.author_id = current_user.id
 
+    book_info = HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse
+    book_name = book_info['volumeInfo']['title']
+
+    @review.book_name = book_name
+
     if @review.save
       flash[:notice] = 'Review was successfully created.'
     else
@@ -53,7 +58,6 @@ class ReviewController < ApplicationController
   end
 
   def my_reviews
-    @reviews = Review.where(author_id: current_user.id)
   end
 
   private

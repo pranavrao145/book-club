@@ -1,3 +1,44 @@
 <div class="container mt-5">
-  <h1>Welcome, <%= current_user.username %>!</h1>
+  <h1 class="mb-3">Welcome, <%= current_user.username %>!</h1>
+
+  <div class="content-section">
+    <% unless @user_reviews.empty? %>
+      <h3 class="mt-1 mb-3">Your Recent Reviews</h3>
+      <% @user_reviews.each do |review| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex">
+              <div>
+                <h3 class="card-title"> 
+                  <%= review.title %>
+                </h3>
+              </div>
+              <div class="ms-auto">
+                <h5 class="text-muted">
+                  <%= review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+                </h5>
+              </div>
+            </div>
+            <h5 class="card-subtitle mb-2 text-muted">
+              <%= review.book_name %>
+            </h5>
+            <p class="card-text">
+            <%= review.content %>
+            </p>
+            <%= link_to "View Review", review_path(book_id: review.gbook_id, id: review.id), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="mt-5">
+      </div>
+      <h1 class="text-center">
+        You don't have any reviews yet.
+      </h1>
+      <h5 class="text-center text-muted">
+        Click on the navbar button to get started.
+      </h5>
+    <% end %>
+
+  </div>
 </div>

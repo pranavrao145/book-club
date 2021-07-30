@@ -9,7 +9,7 @@ class BookController < ApplicationController
     @book_reviews = Review.where(gbook_id: params[:book_id])
 
     if @book_reviews.empty?
-      @average_rating = 'No ratings yet.'
+      @average_rating = 0
     else
       total = 0
 

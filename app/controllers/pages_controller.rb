@@ -6,5 +6,8 @@ class PagesController < ApplicationController
 
   def home
     @title = 'Home'
+
+    # get the last 10 reviews
+    @user_reviews = Review.where(author_id: current_user.id).last(10)
   end
 end

@@ -9,10 +9,13 @@
       <%= link_to "Back", :back, class: "btn btn-primary"%>
     </div>
   </div>
-  <p class="fs-5">
-  <b>Created on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> by <b><%= @review.author.username %></b></br>
-  <b>Rating: </b> <%= @review.rating %>
-  </p>
-  <%= @review.content %>
-  </p>
+
+  <div class="content-section">
+    <h5 class="text-muted">
+      <b>Created on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> by <b><%= @review.author.username %></b></br>
+      <b>Rating: </b> <%= @review.rating %>
+    </h5>
+    <%= @review.content %>
+    </p>
+  </div>
 </div>
