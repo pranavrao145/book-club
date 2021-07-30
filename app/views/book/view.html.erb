@@ -18,7 +18,7 @@
       <h2>
         By: <%= @book_info["volumeInfo"]["authors"].join(', ') %>
       </h2>
-
+ 
       <div class="mt-4">
         <div class="d-grid gap-2">
           <%= link_to "Write a review for this book", new_review_path(book_id: @book_info["id"]), class: "btn btn-primary" %>
