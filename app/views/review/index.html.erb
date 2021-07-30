@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h1>All Reviews</h1>
+  <p class="fs-5">Book: <%= @book_name %></p>
+  <div class="mt-4">
+    <% unless @book_reviews.empty? %>
+      <% @book_reviews.each do |book_review| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h3 class="card-title"> 
+              <%= book_review.title %>
+            </h3>
+            <p class="card-text">
+            <%= book_review.content %>
+            </p>
+            <%= link_to "View Review", review_path(book_id: @book_info["id"], id: book_review.id), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h1 class="text-center">
+        No reviews yet.
+      </h1>
+    <% end %>
+  </div>
+</div>

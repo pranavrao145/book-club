@@ -1,10 +1,15 @@
 class ReviewController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!  # to show all the reviews created by the current user def index @reviews = Review.all end
 
-  # to show all the reviews created by the current user 
   def index
-    @reviews = Review.all
+    @title = 'All Reviews'
+
+    @book_info = HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse
+    @book_name = @book_info['volumeInfo']['title']
+
+    # get all the book reviews
+    @book_reviews = Review.where(gbook_id: params[:book_id])
   end
 
   def show
@@ -18,6 +23,7 @@ class ReviewController < ApplicationController
   end
 
   def edit
+    @title = 'Edit Review'
   end
 
   def create
