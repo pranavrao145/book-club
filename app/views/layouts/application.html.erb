@@ -23,6 +23,16 @@
   <body>
     <%= render 'layouts/navbar' %>
 
+    <% if notice %>
+      <div class="alert alert-primary">
+        <%= notice %>
+      </div>
+    <% elsif alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+    <% end %>
+
     <%= yield %>
 
     <!-- Bootstrap Bundle with Popper -->

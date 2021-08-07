@@ -55,6 +55,7 @@ class ReviewController < ApplicationController
 
   def destroy
     @review.destroy
+    flash[:notice] = 'Review deleted successfully.'
   end
 
   def my_reviews

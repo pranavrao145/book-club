@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div class="d-flex">
+  <div class="d-flex mb-2">
     <div>
       <h1>
         <%= @review.title %>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="content-section">
-    <h5 class="text-muted">
+    <h5>
       <b>Created on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> by <b><%= @review.author.username %></b></br>
       <b>Rating: </b> <%= @review.rating %>
     </h5>
