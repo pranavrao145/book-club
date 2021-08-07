@@ -1,16 +1,7 @@
 <div class="container mt-5">
-  <h1 class="mb-3">Welcome, <%= current_user.username %>!</h1>
-
-  <% unless @user_reviews.empty? %>
-    <div class="d-flex">
-      <div>
-        <h3 class="mt-1 mb-3">Your Recent Reviews</h3>
-      </div>
-      <div class="ms-auto">
-        <%= link_to "View All", reviews_path, class: "btn btn-primary" %>
-      </div>
-    </div>
-    <% @user_reviews.each do |review| %>
+  <% unless @reviews.empty? %>
+    <h1 class="mt-1 mb-3">Your Reviews</h1>
+    <% @reviews.each do |review| %>
       <div class="card mb-3">
         <div class="card-body">
           <div class="d-flex">
