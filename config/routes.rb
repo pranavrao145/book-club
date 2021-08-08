@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :review
       get 'view'
     end
+
+    get '/:book_id', to: 'book#view'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

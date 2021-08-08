@@ -28,7 +28,7 @@
 
       <div class="mt-5">
         <% unless @book_reviews.empty? %>
-          <% @book_reviews.each do |book_review| %>
+          <% @book_reviews.first(10).each do |book_review| %>
             <div class="card mb-3">
               <div class="card-body">
                 <h3 class="card-title"> 

@@ -1,14 +1,18 @@
-<%= simple_form_for @review, url: url_for(action: :create, controller: :review) do |f| %>
-  <div class="mb-3">
-    <%= f.input :rating, collection: 1..5 %>
-  </div>
-  <div class="mb-3">
-    <%= f.input :title %>
-  </div>
-  <div class="mb-3">
-    <%= f.input :content %>
-  </div>
-  <div class="mb-3">
-    <%= f.button :submit, class: "btn btn-primary"  %>
-  </div>
+<%= form_with model: @review, url: review_index_path do |f| %>
+      <div class="mb-3">
+        <%= f.label :rating, class: "form-label" %>
+        <%= f.number_field :rating, class: "form-control", in: 1..5, required: true %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :title, class: "form-label" %>
+        <%= f.text_field :title, autocomplete: "title", class: "form-control", required: true %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :content, class: "form-label" %>
+        <%= f.text_area :content, autocomplete: "content", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.submit "Submit Review", class: "btn btn-primary"%>
+      </div>
 <% end %>
+

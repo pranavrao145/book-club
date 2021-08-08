@@ -38,11 +38,11 @@ class ReviewController < ApplicationController
 
     if @review.save
       flash[:notice] = 'Review was successfully created.'
+      redirect_to view_path(book_id: params[:book_id])
     else
       flash[:alert] = 'Failed to create review.'
+      redirect_to request.referrer
     end
-
-    redirect_to view_path(book_id: params[:book_id])
   end
 
   def update
@@ -56,6 +56,8 @@ class ReviewController < ApplicationController
   def destroy
     @review.destroy
     flash[:notice] = 'Review deleted successfully.'
+
+    redirect_to :back
   end
 
   def my_reviews
