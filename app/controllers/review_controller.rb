@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# Review controller
 class ReviewController < ApplicationController
   before_action :find_review, only: %i[show edit update destroy]
-  before_action :authenticate_user!  # to show all the reviews created by the current user def index @reviews = Review.all end
+  before_action :authenticate_user! # to show all the reviews created by the current user
 
   def index
     @title = 'All Reviews'
