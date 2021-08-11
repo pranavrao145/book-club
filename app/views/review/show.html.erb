@@ -1,16 +1,17 @@
 <div class="container mt-5">
-  <div class="d-flex mb-2">
-    <div>
-      <h1>
-        <%= @review.title %>
-      </h1>
-    </div>
-    <div class="ms-auto">
-      <%= link_to "Back", :back, class: "btn btn-primary"%>
-    </div>
-  </div>
-
   <div class="content-section">
+    <div class="d-flex mb-2">
+      <div>
+        <h1>
+          <%= @review.title %>
+        </h1>
+      </div>
+      <div class="ms-auto">
+        <%= link_to "View Book", view_path(book_id: @review.gbook_id), class: "btn btn-primary"%>
+        <%= link_to "Back", :back, class: "btn btn-light"%>
+      </div>
+    </div>
+
     <h5>
       <b>Created on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> by <b><%= @review.author.username %></b></br>
       <b>Rating: </b> <%= @review.rating %>

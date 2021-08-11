@@ -10,9 +10,10 @@ class ReviewController < ApplicationController
 
     @book_info = HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse
     @book_name = @book_info['volumeInfo']['title']
+    @book_id = params[:book_id]
 
     # get all the book reviews
-    @book_reviews = Review.where(gbook_id: params[:book_id])
+    @book_reviews = Review.where(gbook_id: @book_id)
   end
 
   def show

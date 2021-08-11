@@ -32,6 +32,7 @@
           <%= review.content %>
           </p>
           <%= link_to "View Review", review_path(book_id: review.gbook_id, id: review.id), class: "btn btn-primary" %>
+          <%= link_to "View Book", view_path(book_id: review.gbook_id), class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>

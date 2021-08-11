@@ -6,8 +6,8 @@
         <% if @average_rating == 0 %>
           No ratings yet.
         <% else %>
-          Average rating: <%= @average_rating %>
-      <% end %>
+          Average rating: <%= @average_rating %>/5.0
+        <% end %>
       </h5>
 
     </div>
@@ -18,7 +18,7 @@
       <h2>
         By: <%= @book_info["volumeInfo"]["authors"].join(', ') %>
       </h2>
- 
+
       <div class="mt-4">
         <div class="d-grid gap-2">
           <%= link_to "Write a review for this book", new_review_path(book_id: @book_info["id"]), class: "btn btn-primary" %>
@@ -28,16 +28,25 @@
 
       <div class="mt-5">
         <% unless @book_reviews.empty? %>
-          <% @book_reviews.first(10).each do |book_review| %>
+          <% @book_reviews.first(10).each do |review| %>
             <div class="card mb-3">
               <div class="card-body">
-                <h3 class="card-title"> 
-                  <%= book_review.title %>
-                </h3>
+                <div class="d-flex">
+                  <div>
+                    <h3 class="card-title"> 
+                      <%= review.title %>
+                    </h3>
+                  </div>
+                  <div class="ms-auto">
+                    <h5 class="text-muted">
+                      <%= review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+                    </h5>
+                  </div>
+                </div>
                 <p class="card-text">
-                <%= book_review.content %>
+                <%= review.content %>
                 </p>
-                <%= link_to "View Review", review_path(book_id: @book_info["id"], id: book_review.id), class: "btn btn-primary" %>
+                <%= link_to "View Review", review_path(book_id: @book_info["id"], id: review.id), class: "btn btn-primary" %>
               </div>
             </div>
           <% end %>

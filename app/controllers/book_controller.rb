@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Book controller
 class BookController < ApplicationController
   def view
     # pull the book's info from the google api and turn it into json
@@ -17,7 +18,7 @@ class BookController < ApplicationController
         total += book_review.rating
       end
 
-      @average_rating = total.to_f / @book_reviews.size
+      @average_rating = (total.to_f / @book_reviews.size).round(1)
     end
   end
 end

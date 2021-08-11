@@ -1,18 +1,35 @@
 <div class="container mt-5">
-  <h1>All Reviews</h1>
-  <h5 class="text-muted">Book: <%= @book_name %></h5>
+    <div class="d-flex mb-2">
+      <div>
+        <h1>All Reviews </h1>
+        <h5 class="text-muted">Book: <%= @book_name %></h5>
+      </div>
+      <div class="ms-auto">
+        <%= link_to "View Book", view_path(book_id: @book_id), class: "btn btn-primary"%>
+        <%= link_to "Back", :back, class: "btn btn-light"%>
+      </div>
+    </div>
   <div class="mt-4">
     <% unless @book_reviews.empty? %>
-      <% @book_reviews.each do |book_review| %>
+      <% @book_reviews.each do |review| %>
         <div class="card mb-3">
           <div class="card-body">
-            <h3 class="card-title"> 
-              <%= book_review.title %>
-            </h3>
+            <div class="d-flex">
+              <div>
+                <h3 class="card-title"> 
+                  <%= review.title %>
+                </h3>
+              </div>
+              <div class="ms-auto">
+                <h5 class="text-muted">
+                  <%= review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+                </h5>
+              </div>
+            </div>
             <p class="card-text">
-            <%= book_review.content %>
+            <%= review.content %>
             </p>
-            <%= link_to "View Review", review_path(book_id: @book_info["id"], id: book_review.id), class: "btn btn-primary" %>
+            <%= link_to "View Review", review_path(book_id: @book_info["id"], id: review.id), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
