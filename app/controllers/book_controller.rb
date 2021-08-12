@@ -21,4 +21,8 @@ class BookController < ApplicationController
       @average_rating = (total.to_f / @book_reviews.size).round(1)
     end
   end
+
+  def search
+    puts 'got it'
+  end
 end

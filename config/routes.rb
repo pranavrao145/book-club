@@ -13,8 +13,11 @@ Rails.application.routes.draw do
       get 'view'
     end
 
+    get 'search'
     get '/:book_id', to: 'book#view'
   end
+
+  get 'search_books', to: 'book#search'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
