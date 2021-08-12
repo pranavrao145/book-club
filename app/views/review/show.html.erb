@@ -12,8 +12,9 @@
       </div>
     </div>
 
-    <h5>
-      <b>Created on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> by <b><%= @review.author.username %></b></br>
+    <h5 class="text-muted">
+      <b>Created on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %></br>
+      <b>Created by:</b> <%= @review.author.username %></br>
       <b>Rating: </b> <%= @review.rating %>
     </h5>
     <%= @review.content %>
