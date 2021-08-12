@@ -4,6 +4,7 @@
 class ReviewController < ApplicationController
   before_action :find_review, only: %i[show edit update destroy]
   before_action :authenticate_user! # to show all the reviews created by the current user
+  before_action :correct_user, only: %i[edit update destroy]
 
   def index
     @title = 'All Reviews'
@@ -61,7 +62,7 @@ class ReviewController < ApplicationController
     @review.destroy
     flash[:notice] = 'Review deleted successfully.'
 
-    redirect_to :back
+    redirect_to request.referrer
   end
 
   def my_reviews
@@ -69,6 +70,11 @@ class ReviewController < ApplicationController
   end
 
   private
+
+  def correct_user
+    @review = current_user.reviews.find(params[:id])
+    redirect_to review_path, notice: 'Not authorized to edit this review' if @review.nil?
+  end
 
   def find_review
     @review = Review.find(params[:id])
