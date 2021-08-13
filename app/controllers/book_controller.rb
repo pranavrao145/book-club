@@ -23,6 +23,8 @@ class BookController < ApplicationController
   end
 
   def search
-    puts 'got it'
+    query_string = "https://www.googleapis.com/books/v1/volumes?q=#{params[:query]}"
+    query_string_friendly = CGI.escape query_string
+    @books = HTTP.get(query_string_friendly).parse
   end
 end

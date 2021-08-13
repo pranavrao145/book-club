@@ -10,4 +10,11 @@
       </div>
     <% end %>
   </div>
+  <div class="content-section">
+    <% unless @books.empty? %>
+      <% @books.each do |book| %>
+        <h1>Book</h1>
+      <% end %>
+    <% end %>
+  </div>
 </div>
