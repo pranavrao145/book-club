@@ -29,7 +29,7 @@ class BookController < ApplicationController
   private
 
   def search_books(query)
-    query_string = "https://www.googleapis.com/books/v1/volumes?q=#{query}".gsub(/\s+/, '%20')
-    HTTP.get(query_string).parse
+    query_string = "https://www.googleapis.com/books/v1/volumes?q=#{query}&maxResults=40".gsub(/\s+/, '%20')
+    HTTP.get(query_string).parse['items']
   end
 end
