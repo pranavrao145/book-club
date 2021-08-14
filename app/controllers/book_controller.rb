@@ -23,8 +23,13 @@ class BookController < ApplicationController
   end
 
   def search
-    query_string = "https://www.googleapis.com/books/v1/volumes?q=#{params[:query]}"
-    query_string_friendly = CGI.escape query_string
-    @books = HTTP.get(query_string_friendly).parse
+    @books = search_books(params[:query]) unless params[:query].nil? || params[:query].empty?
+  end
+
+  private
+
+  def search_books(query)
+    query_string = "https://www.googleapis.com/books/v1/volumes?q=#{query}".gsub(/\s+/, '%20')
+    HTTP.get(query_string).parse
   end
 end
