@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reviews, foreign_key: :author_id
+  validates :username, uniqueness: true
 end

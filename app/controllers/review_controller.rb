@@ -3,7 +3,7 @@
 # Review controller
 class ReviewController < ApplicationController
   before_action :find_review, only: %i[show edit update destroy]
-  before_action :authenticate_user! # to show all the reviews created by the current user
+  before_action :authenticate_user!, except: %i[show index] # to show all the reviews created by the current user
   before_action :correct_user, only: %i[edit update destroy]
 
   def index
@@ -19,7 +19,6 @@ class ReviewController < ApplicationController
 
   def show
     @title = 'View Review'
-    find_review
   end
 
   def new
