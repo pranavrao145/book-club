@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'pages#decide'
   devise_for :users
 
   get 'reviews', to: 'review#my_reviews'
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   get 'search_books', to: 'book#search'
+  get 'home', to: 'pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
