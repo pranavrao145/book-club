@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="d-flex mb-2">
       <div>
-        <h1>All Reviews</h1>
+        <h1>All Discussions</h1>
         <h5 class="text-muted">Book: <%= @book_name %></h5>
       </div>
       <div class="ms-auto">
@@ -10,36 +10,37 @@
       </div>
     </div>
   <div class="mt-4">
-    <% unless @book_reviews.empty? %>
-      <% @book_reviews.each do |review| %>
+    <% unless @book_discussions.empty? %>
+      <% @book_discussions.each do |discussion| %>
         <div class="card mb-3">
           <div class="card-body">
             <div class="d-flex">
               <div>
                 <h3 class="card-title"> 
-                  <%= review.title %>
+                  <%= discussion.title %>
                 </h3>
                 <h5 class="card-subtitle mb-2 text-muted">
-                  By: <%= review.author.username %>
+                  By: <%= discussion.author.username %>
                 </h5>
               </div>
               <div class="ms-auto">
                 <h5 class="text-muted">
-                  <%= review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+                  <%= discussion.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
                 </h5>
               </div>
             </div>
             <p class="card-text">
-            <%= review.content %>
+            <%= discussion.content %>
             </p>
-            <%= link_to "View Review", review_path(book_id: @book_info["id"], id: review.id), class: "btn btn-primary" %>
+            <%= link_to "View Discussion", discussion_path(book_id: @book_info["id"], id: discussion.id), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
     <% else %>
       <h1 class="text-center">
-        No reviews yet.
+        No discussions yet.
       </h1>
     <% end %>
   </div>
 </div>
+

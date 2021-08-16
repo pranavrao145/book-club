@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="content-section">
+    <div class="d-flex mb-2">
+      <div>
+        <h1>
+          <%= @discussion.title %>
+        </h1>
+      </div>
+      <div class="ms-auto">
+        <% if user_signed_in? %>
+          <% if @discussion.author_id == current_user.id %>
+            <%= link_to "Delete Discussion", discussion_path(book_id: @discussion.gbook_id, id: @discussion.id), method: :delete, data: {confirm: 'Are you sure you want to delete this discussion?'}, class: "btn btn-danger" %>
+          <% end %>
+        <% end %>
+        <%= link_to "View Book", view_path(book_id: @discussion.gbook_id), class: "btn btn-primary"%>
+        <%= link_to "Back", :back, class: "btn btn-light"%>
+      </div>
+    </div>
+
+    <h5 class="text-muted">
+      <b>Created on:</b> <%= @discussion.created_at.strftime("%B %d, %Y at %-I:%M %p") %></br>
+      <b>Created by:</b> <%= @discussion.author.username %></br>
+    </h5>
+    <%= @discussion.content %>
+    </p>
+  </div>
+</div>

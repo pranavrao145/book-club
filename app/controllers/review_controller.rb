@@ -73,7 +73,7 @@ class ReviewController < ApplicationController
 
   def correct_user
     @review = current_user.reviews.find(params[:id])
-    redirect_to review_path, notice: 'Not authorized to edit this review' if @review.nil?
+    redirect_to review_path, notice: 'Not authorized to edit this review.' if @review.nil?
   end
 
   def find_review

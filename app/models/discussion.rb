@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Discussion < ApplicationRecord
-  has_one :starter
-  has_many :replies, through: :starters
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  has_many :replies
+
+  validates :title, presence: true
+  validates :content, presence: true
 end

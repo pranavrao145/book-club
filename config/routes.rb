@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
   root to: 'pages#decide'
-  devise_for :users
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   get 'reviews', to: 'review#my_reviews'
   get 'reviews/all', to: 'review#my_reviews'
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
   scope 'books', controller: :book do
     scope '/:book_id' do
       resources :review
+      resources :discussions, controller: :discussion
       get 'view'
     end
 
