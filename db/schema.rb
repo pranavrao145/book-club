@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_205343) do
+ActiveRecord::Schema.define(version: 2021_08_16_161617) do
+
+  create_table "discussions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "gbook_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "content"
+    t.integer "starter_id", null: false
+    t.integer "discussion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_replies_on_author_id"
+    t.index ["discussion_id"], name: "index_replies_on_discussion_id"
+    t.index ["starter_id"], name: "index_replies_on_starter_id"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating", null: false
@@ -22,6 +40,17 @@ ActiveRecord::Schema.define(version: 2021_08_13_205343) do
     t.text "content"
     t.string "book_name", null: false
     t.index ["author_id"], name: "index_reviews_on_author_id"
+  end
+
+  create_table "starters", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "discussion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_starters_on_author_id"
+    t.index ["discussion_id"], name: "index_starters_on_discussion_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +67,9 @@ ActiveRecord::Schema.define(version: 2021_08_13_205343) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "replies", "discussions"
+  add_foreign_key "replies", "starters"
+  add_foreign_key "replies", "users", column: "author_id"
+  add_foreign_key "starters", "discussions"
+  add_foreign_key "starters", "users", column: "author_id"
 end
