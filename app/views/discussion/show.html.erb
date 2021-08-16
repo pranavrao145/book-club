@@ -18,8 +18,8 @@
     </div>
 
     <h5 class="text-muted">
-      <b>Created on:</b> <%= @discussion.created_at.strftime("%B %d, %Y at %-I:%M %p") %></br>
-      <b>Created by:</b> <%= @discussion.author.username %></br>
+      <b>Started on:</b> <%= @discussion.created_at.strftime("%B %d, %Y at %-I:%M %p") %></br>
+      <b>Started by:</b> <%= @discussion.author.username %></br>
     </h5>
     <%= @discussion.content %>
     </p>

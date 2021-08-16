@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews, foreign_key: :author_id
   has_many :replies, foreign_key: :author_id
-  has_many :discussions
+  has_many :discussions, foreign_key: :author_id
 
   validates :username, uniqueness: true
 end

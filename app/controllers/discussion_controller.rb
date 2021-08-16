@@ -57,6 +57,7 @@ class DiscussionController < ApplicationController
 
   def destroy
     @discussion.destroy
+    flash[:notice] = 'Review deleted successfully.'
 
     redirect_to request.referrer
   end

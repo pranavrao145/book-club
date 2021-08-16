@@ -20,7 +20,7 @@
                   <%= discussion.title %>
                 </h3>
                 <h5 class="card-subtitle mb-2 text-muted">
-                  By: <%= discussion.author.username %>
+                  Started by: <%= discussion.author.username %>
                 </h5>
               </div>
               <div class="ms-auto">
@@ -33,6 +33,11 @@
             <%= discussion.content %>
             </p>
             <%= link_to "View Discussion", discussion_path(book_id: @book_info["id"], id: discussion.id), class: "btn btn-primary" %>
+            <% if user_signed_in? %>
+              <% if discussion.author_id == current_user.id %>
+                <%= link_to "Delete Discussion", discussion_path(book_id: @book_info["id"], id: discussion.id), method: :delete, data: {confirm: 'Are you sure you want to delete this discussion?'}, class: "btn btn-danger" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       <% end %>
