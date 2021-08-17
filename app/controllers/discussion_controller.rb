@@ -23,6 +23,8 @@ class DiscussionController < ApplicationController
 
   def new
     @discussion = Discussion.new
+    @title = 'New Discussion'
+    @book_name = (HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse)['volumeInfo']['title']
   end
 
   def edit; end

@@ -1,13 +1,20 @@
 <div class="container mt-5">
   <% unless @reviews.empty? %>
-    <h1 class="mt-1 mb-3">Your Reviews</h1>
+    <div class="d-flex">
+      <div>
+        <h1 class="mt-1 mb-3">Your Reviews</h1>
+      </div>
+      <div class="ms-auto">
+        <%= link_to "Back", :back, class: "btn btn-light"%>
+      </div>
+    </div>
     <% @reviews.each do |review| %>
       <div class="card mb-3">
         <div class="card-body">
           <div class="d-flex">
             <div>
               <h3 class="card-title"> 
-                <%= review.title %>
+                <%= truncate review.title, length: 50, separator: /\s/ %>
               </h3>
             </div>
             <div class="ms-auto">

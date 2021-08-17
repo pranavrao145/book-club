@@ -27,9 +27,12 @@
                 <% end %>
               </div>
               <div class="col">
-                <h4 class="card-title">
+                <h3 class="card-title">
                   <%= book['volumeInfo']['title'] %>
-                </h4>
+                </h3>
+                <h5 class="card-subtitle text-muted mb-2">
+                  By: <%= book["volumeInfo"]["authors"].join(', ') %>
+                </h5>
                 <%= truncate book['volumeInfo']['description'], length: 500, separator: /\s/ %>
               </div>
             </div>

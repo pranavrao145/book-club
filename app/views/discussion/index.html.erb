@@ -5,6 +5,7 @@
         <h5 class="text-muted">Book: <%= @book_name %></h5>
       </div>
       <div class="ms-auto">
+        <%= link_to "Start a Discussion", new_discussion_path(book_id: @book_id), class: "btn btn-primary"%>
         <%= link_to "View Book", view_path(book_id: @book_id), class: "btn btn-primary"%>
         <%= link_to "Back", :back, class: "btn btn-light"%>
       </div>
