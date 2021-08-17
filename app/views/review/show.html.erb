@@ -1,13 +1,13 @@
 <div class="container mt-5">
   <div class="card mb-3">
     <div class="card-body">
-      <h3 class="card-title"> 
+      <h1 class="card-title"> 
         <%= @review.title %>
+      </h1>
+      <h3 class="card-subtitle mb-3 text-muted">
+        Written by: <%= @review.author.username %></br>
+        Written on: <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
       </h3>
-      <h5 class="card-subtitle mb-2 text-muted">
-        By: <%= @review.author.username %></br>
-        <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
-      </h5>
       <p class="card-text">
       <%= @review.content %>
       </p>
@@ -17,7 +17,6 @@
           <%= link_to "Edit Review", edit_review_path(book_id: @review.gbook_id, id: @review.id), class: "btn btn-primary" %>
         <% end %>
       <% end %>
-      <%= link_to "View Book", view_path(book_id: @review.gbook_id), class: "btn btn-primary"%>
       <%= link_to "Back", :back, class: "btn btn-light"%>
     </div>
   </div>
