@@ -1,4 +1,4 @@
-<%= form_with model: @discussion, url: discussions_path do |f| %>
+<%= form_with model: @discussion do |f| %>
       <div class="mb-3">
         <%= f.label :title, class: "form-label" %>
         <%= f.text_field :title, autocomplete: "content", class: "form-control", required: true %>

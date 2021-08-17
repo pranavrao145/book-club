@@ -36,7 +36,7 @@
             </p>
             <%= link_to "View Book", view_path(book_id: book['id']), class: "btn btn-primary" %>
             <%= link_to "Write a Review", new_review_path(book_id: book["id"]), class: "btn btn-primary" %>
-            <%= link_to "Read Reviews", review_index_path(book_id: book["id"]), class: "btn btn-primary" %>
+            <%= link_to "Read Reviews", reviews_path(book_id: book["id"]), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>

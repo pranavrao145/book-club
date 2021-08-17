@@ -7,12 +7,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  get 'reviews', to: 'review#my_reviews'
-  get 'reviews/all', to: 'review#my_reviews'
+  get 'my_reviews', to: 'review#my_reviews'
 
   scope 'books', controller: :book do
     scope '/:book_id' do
-      resources :review
+      resources :reviews, controller: :review
       resources :discussions, controller: :discussion
       get 'view'
     end
