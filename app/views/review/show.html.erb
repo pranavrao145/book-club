@@ -4,10 +4,10 @@
       <h1 class="card-title"> 
         <%= @review.title %>
       </h1>
-      <h3 class="card-subtitle mb-3 text-muted">
-        Written by: <%= @review.author.username %></br>
-        Written on: <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
-      </h3>
+      <h5 class="card-subtitle mb-3 text-muted">
+        <b>Written by:</b> <%= @review.author.username %></br>
+        <b>Written on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+      </h5>
       <p class="card-text">
       <%= @review.content %>
       </p>

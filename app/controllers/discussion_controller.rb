@@ -48,18 +48,20 @@ class DiscussionController < ApplicationController
   end
 
   def update
-    if @discussion.update(params[:discussion])
+    if @discussion.update(discussion_params)
       flash[:notice] = 'Discussion was successfully updated.'
+      redirect_to view_path(book_id: @discussion.gbook_id)
     else
       flash[:alert] = 'Failed to update discussion.'
+      redirect_to request.referrer
     end
   end
 
   def destroy
     @discussion.destroy
-    flash[:notice] = 'Review deleted successfully.'
+    flash[:notice] = 'Discussion deleted successfully.'
 
-    redirect_to request.referrer
+    redirect_to view_path(book_id: @discussion.gbook_id)
   end
 
   private
