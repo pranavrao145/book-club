@@ -37,40 +37,41 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="mt-5">
-        <% unless @book_reviews.empty? %>
-          <% @book_reviews.first(10).each do |review| %>
-            <div class="card mb-3">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div>
-                    <h3 class="card-title"> 
-                      <%= review.title %>
-                    </h3>
-                    <h5 class="card-subtitle mb-2 text-muted">
-                      By: <%= review.author.username %>
-                    </h5>
-                  </div>
-                  <div class="ms-auto">
-                    <h5 class="text-muted">
-                      <%= review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
-                    </h5>
-                  </div>
+    <div class="mt-3">
+      <h1 class="mb-3">Recent Reviews</h1>
+      <% unless @book_reviews.empty? %>
+        <% @book_reviews.first(10).each do |review| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex">
+                <div>
+                  <h3 class="card-title"> 
+                    <%= truncate review.title, length: 50, separator: /\s/ %>
+                  </h3>
+                  <h5 class="card-subtitle mb-2 text-muted">
+                    By: <%= review.author.username %>
+                  </h5>
                 </div>
-                <p class="card-text">
-                <%= review.content %>
-                </p>
-                <%= link_to "View Review", review_path(book_id: review.gbook_id, id: review.id), class: "btn btn-primary" %>
+                <div class="ms-auto">
+                  <h5 class="text-muted">
+                    <%= review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+                  </h5>
+                </div>
               </div>
+              <p class="card-text">
+              <%= truncate review.content, length: 200, separator: /\s/ %>
+              </p>
+              <%= link_to "View Review", review_path(book_id: review.gbook_id, id: review.id), class: "btn btn-primary" %>
             </div>
-          <% end %>
-        <% else %>
-          <h2 class="text-center">
-            No reviews yet.
-          </h2>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <h2 class="text-center">
+          No reviews yet.
+        </h2>
+      <% end %>
     </div>
   </div>
 </div>

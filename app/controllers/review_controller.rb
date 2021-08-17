@@ -64,7 +64,7 @@ class ReviewController < ApplicationController
     @review.destroy
     flash[:notice] = 'Review deleted successfully.'
 
-    redirect_to request.referrer
+    redirect_to view_path(book_id: @review.gbook_id)
   end
 
   def my_reviews
