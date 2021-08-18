@@ -42,7 +42,7 @@ class DiscussionController < ApplicationController
 
     if @discussion.save
       flash[:notice] = 'Discussion was successfully created.'
-      redirect_to discussion_path(book_id: params[:book_id], id: @discussion.id)
+      redirect_to discussion_path(book_id: params[:book_id], discussion_id: @discussion.discussion_id)
     else
       flash[:alert] = 'Failed to create discussion.'
       redirect_to request.referrer
@@ -69,11 +69,11 @@ class DiscussionController < ApplicationController
   private
 
   def find_discussion
-    @discussion = Discussion.find(params[:id])
+    @discussion = Discussion.find(params[:discussion_id])
   end
 
   def correct_user
-    @discussion = current_user.discussions.find(params[:id])
+    @discussion = current_user.discussions.find(params[:discussion_id])
     redirect_to discussion_path, notice: 'Not authorized to edit this discussion.' if @discussion.nil?
   end
 

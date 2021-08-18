@@ -33,7 +33,7 @@
             <p class="card-text">
             <%= truncate review.content, length: 500, separator: /\s/ %>
             </p>
-            <%= link_to "View Review", review_path(book_id: @book_info["id"], id: review.id), class: "btn btn-primary" %>
+            <%= link_to "View Review", review_path(book_id: @book_info["id"], review_id: review.id), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>

@@ -33,7 +33,7 @@
             <p class="card-text">
             <%= discussion.content %>
             </p>
-            <%= link_to "View Discussion", discussion_path(book_id: @book_info["id"], id: discussion.id), class: "btn btn-primary" %>
+            <%= link_to "View Discussion", discussion_path(book_id: @book_info["id"], discussion_id: discussion.id), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>

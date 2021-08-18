@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   scope 'books', controller: :book do
     scope '/:book_id' do
-      resources :reviews, controller: :review
+      resources :reviews, controller: :review, param: :review_id
       resources :discussions, controller: :discussion
       get 'view'
     end
