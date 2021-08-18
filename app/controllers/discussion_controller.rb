@@ -13,6 +13,8 @@ class DiscussionController < ApplicationController
     @book_name = @book_info['volumeInfo']['title']
     @book_id = params[:book_id]
 
+    @reply = Reply.new
+
     # get all the book discussions
     @book_discussions = Discussion.where(gbook_id: @book_id)
   end
