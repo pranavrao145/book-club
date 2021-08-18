@@ -29,6 +29,7 @@ class ReviewController < ApplicationController
 
   def edit
     @title = 'Edit Review'
+    @book_name = (HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse)['volumeInfo']['title']
   end
 
   def create

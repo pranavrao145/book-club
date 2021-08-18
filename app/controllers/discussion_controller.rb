@@ -13,8 +13,6 @@ class DiscussionController < ApplicationController
     @book_name = @book_info['volumeInfo']['title']
     @book_id = params[:book_id]
 
-    @reply = Reply.new
-
     # get all the book discussions
     @book_discussions = Discussion.where(gbook_id: @book_id)
   end
@@ -30,7 +28,9 @@ class DiscussionController < ApplicationController
     @book_name = (HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse)['volumeInfo']['title']
   end
 
-  def edit; end
+  def edit
+    @book_name = (HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:book_id]}").parse)['volumeInfo']['title']
+  end
 
   def create
     @discussion = Discussion.new(discussion_params)

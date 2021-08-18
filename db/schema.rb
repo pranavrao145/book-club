@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_16_174912) do
+ActiveRecord::Schema.define(version: 2021_08_18_155500) do
 
   create_table "discussions", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_174912) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.string "content"
+    t.string "content", null: false
     t.integer "discussion_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
