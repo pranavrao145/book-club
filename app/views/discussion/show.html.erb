@@ -21,5 +21,22 @@
       <%= link_to "Back", :back, class: "btn btn-light"%>
     </div>
   </div>
+
+  <% unless @replies.nil? %>
+    <% unless @replies.empty? %>
+      <div class="row justify-content-end">
+        <div class="col-8">
+          <%= @replies.each do |reply| %>
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted"><%= reply.author.username %></h6>
+                <p class="card-text"><%= reply.content %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 

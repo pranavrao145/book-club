@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   scope 'books', controller: :book do
     scope '/:book_id' do
-      resources :reviews, controller: :review, param: :review_id
-      resources :discussions, controller: :discussion, param: :discussion_id
+     resources :reviews, controller: :review, param: :review_id
+      resources :discussions, controller: :discussion, param: :discussion_id do
+        resources :replies, controller: :reply, param: :reply_id, except: %i[index]
+      end
       get 'view'
     end
 

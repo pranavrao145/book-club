@@ -19,6 +19,7 @@ class DiscussionController < ApplicationController
 
   def show
     @title = 'View Discussion'
+    @replies = @discussion.replies
   end
 
   def new

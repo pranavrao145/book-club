@@ -1,0 +1,2 @@
+class ReplyController < ApplicationController
+end
