@@ -52,7 +52,7 @@ class DiscussionController < ApplicationController
   def update
     if @discussion.update(discussion_params)
       flash[:notice] = 'Discussion was successfully updated.'
-      redirect_to view_path(book_id: @discussion.gbook_id)
+      redirect_to discussion_path(book_id: @discussion.gbook_id, discussion_id: @discussion.id)
     else
       flash[:alert] = 'Failed to update discussion.'
       redirect_to request.referrer

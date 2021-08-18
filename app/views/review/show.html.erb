@@ -17,6 +17,7 @@
           <%= link_to "Edit Review", edit_review_path(book_id: @review.gbook_id, review_id: @review.id), class: "btn btn-primary" %>
         <% end %>
       <% end %>
+      <%= link_to "View Book", view_path(book_id: @review.gbook_id), class: "btn btn-primary" %>
       <%= link_to "Back", :back, class: "btn btn-light"%>
     </div>
   </div>

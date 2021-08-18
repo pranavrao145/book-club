@@ -53,7 +53,7 @@ class ReviewController < ApplicationController
   def update
     if @review.update(review_params)
       flash[:notice] = 'Review was successfully updated.'
-      redirect_to view_path(book_id: @review.gbook_id)
+      redirect_to review_path(book_id: @review.gbook_id, review_id: @review.id)
     else
       flash[:alert] = 'Failed to update review.'
       redirect_to request.referrer

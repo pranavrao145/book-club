@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope 'books', controller: :book do
     scope '/:book_id' do
       resources :reviews, controller: :review, param: :review_id
-      resources :discussions, controller: :discussion
+      resources :discussions, controller: :discussion, param: :discussion_id
       get 'view'
     end
 
