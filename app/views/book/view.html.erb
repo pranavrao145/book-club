@@ -49,7 +49,8 @@
                     <%= truncate review.title, length: 50, separator: /\s/ %>
                   </h3>
                   <h5 class="card-subtitle mb-2 text-muted">
-                    By: <%= review.author.username %>
+                    By: <%= review.author.username %></br>
+                    Rating: <%= review.rating %>
                   </h5>
                 </div>
                 <div class="ms-auto">

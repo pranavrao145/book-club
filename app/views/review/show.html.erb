@@ -6,7 +6,8 @@
       </h1>
       <h5 class="card-subtitle mb-3 text-muted">
         <b>Written by:</b> <%= @review.author.username %></br>
-        <b>Written on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %> 
+        <b>Written on:</b> <%= @review.created_at.strftime("%B %d, %Y at %-I:%M %p") %></br>
+        <b>Rating:</b> <%= @review.rating %>
       </h5>
       <p class="card-text">
       <%= @review.content %>

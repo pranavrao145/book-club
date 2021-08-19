@@ -26,7 +26,8 @@
             </div>
           </div>
           <h5 class="card-subtitle mb-2 text-muted">
-            Book: <%= review.book_name %>
+            Book: <%= review.book_name %></br>
+            Rating: <%= review.rating %>
           </h5>
           <p class="card-text">
           <%= truncate review.content, length: 500, separator: /\s/ %>

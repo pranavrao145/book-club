@@ -45,7 +45,7 @@ class DiscussionController < ApplicationController
 
     if @discussion.save
       flash[:notice] = 'Discussion was successfully created.'
-      redirect_to discussion_path(book_id: params[:book_id], discussion_id: @discussion.discussion_id)
+      redirect_to discussion_path(book_id: params[:book_id], discussion_id: @discussion.id)
     else
       flash[:alert] = 'Failed to create discussion.'
       redirect_to request.referrer
