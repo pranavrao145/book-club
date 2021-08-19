@@ -34,6 +34,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'simple_form', '~> 5.1'
 
+gem 'will_paginate', '~> 3.1.0'
+
 gem 'http', '~> 5.0', '>= 5.0.1'
 
 group :development, :test do
