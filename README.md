@@ -1,5 +1,5 @@
 # Book Club
-An application where people can get find and review the books they love, as well as discuss these books with others.
+An application where people can get find and review the books they love, as well as discuss these books with others. Made with Ruby on Rails 6.
 
 ## Link
 Here is a link to the production version of this project: https://pr-book-club.herokuapp.com/
