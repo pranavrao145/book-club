@@ -26,6 +26,8 @@ gem 'devise', '~> 4.8'
 
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6', groups: %i[development test]
 
+gem 'will_paginate-bootstrap4', '~> 0.2.2'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

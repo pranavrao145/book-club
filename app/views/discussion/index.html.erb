@@ -37,6 +37,7 @@
           </div>
         </div>
       <% end %>
+      <%= will_paginate @book_discussions, list_classes: %w(pagination justify-content-center) %> 
     <% else %>
       <h1 class="text-center">
         No discussions yet.

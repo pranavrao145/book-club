@@ -14,7 +14,7 @@ class ReviewController < ApplicationController
     @book_id = params[:book_id]
 
     # get all the book reviews
-    @book_reviews = Review.where(gbook_id: @book_id)
+    @book_reviews = Review.where(gbook_id: @book_id).paginate(page: params[:page], per_page: 10)
   end
 
   def show

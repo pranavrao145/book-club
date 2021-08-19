@@ -14,7 +14,7 @@ class DiscussionController < ApplicationController
     @book_id = params[:book_id]
 
     # get all the book discussions
-    @book_discussions = Discussion.where(gbook_id: @book_id)
+    @book_discussions = Discussion.where(gbook_id: @book_id).paginate(page: params[:page], per_page: 10)
   end
 
   def show
