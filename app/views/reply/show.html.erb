@@ -14,7 +14,7 @@
           <%= link_to "Edit reply", edit_discussion_reply_path(book_id: @reply.discussion.gbook_id, discussion_discussion_id: @reply.discussion_id, reply_id: @reply.id), class: "btn btn-primary" %>
         <% end %>
       <% end %>
-      <%= link_to "View Book", view_path(book_id: @reply.discussion.gbook_id), class: "btn btn-primary" %>
+      <%= link_to "View Discussion", discussion_path(book_id: @reply.discussion.gbook_id, discussion_id: @reply.discussion_id), class: "btn btn-primary" %>
       <%= link_to "Back", :back, class: "btn btn-light"%>
     </div>
   </div>

@@ -31,7 +31,11 @@
                   <%= book['volumeInfo']['title'] %>
                 </h3>
                 <h5 class="card-subtitle text-muted mb-2">
-                  By: <%= book["volumeInfo"]["authors"].join(', ') %>
+                  <% unless book["volumeInfo"]["authors"].nil? %>
+                    By: <%= book["volumeInfo"]["authors"].join(', ') %>
+                <% else %>
+                  No authors found.
+                <% end %>
                 </h5>
                 <%= truncate book['volumeInfo']['description'], length: 500, separator: /\s/ %>
               </div>

@@ -30,7 +30,14 @@
           <% @replies.each do |reply| %>
             <div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted"><%= reply.author.username %></h6>
+                <div class="d-flex mb-2">
+                  <div>
+                    <h6 class="card-subtitle text-muted"><%= reply.author.username %> on <%= reply.created_at.strftime("%B %d, %Y at %-I:%M %p") %></h6>
+                  </div>
+                  <div class="ms-auto">
+                    <%= link_to "View Reply", discussion_reply_path(book_id: reply.discussion.gbook_id, discussion_discussion_id: reply.discussion_id, reply_id: reply.id), class: "btn btn-primary" %>
+                  </div>
+                </div>
                 <p class="card-text"><%= reply.content %></p>
               </div>
             </div>
@@ -39,5 +46,4 @@
       </div>
     <% end %>
   <% end %>
-
 </div>

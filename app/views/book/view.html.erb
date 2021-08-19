@@ -22,7 +22,11 @@
         <%= @book_info["volumeInfo"]["title"] %>
       </h1>
       <h2>
-        By: <%= @book_info["volumeInfo"]["authors"].join(', ') %>
+        <% unless @book_info["volumeInfo"]["authors"].nil? %>
+          By: <%= @book_info["volumeInfo"]["authors"].join(', ') %>
+      <% else %>
+        No authors found.
+      <% end %>
       </h2>
 
       <div class="d-grid gap-2 mt-4">

@@ -1,10 +1,10 @@
-<%= form_with model: @reply, url: discussion_replies_path do |f| %>
-      <div class="mb-3">
-        <%= f.label :content, class: "form-label" %>
-        <%= f.text_area :content, autocomplete: "content", class: "form-control", required: true %>
-      </div>
-      <div class="mb-3">
-        <%= f.submit "Submit Reply", class: "btn btn-primary"%>
-      </div>
+<%= form_with model: @reply do |f| %>
+  <div class="mb-3">
+    <%= f.label :content, class: "form-label" %>
+    <%= f.text_area :content, autocomplete: "content", class: "form-control", required: true, maxlength: 1000 %>
+  </div>
+  <div class="mb-3">
+    <%= f.submit "Submit Reply", class: "btn btn-primary"%>
+  </div>
 <% end %>
 

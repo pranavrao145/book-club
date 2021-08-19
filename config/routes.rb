@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   get 'search_books', to: 'book#search'
   get 'home', to: 'pages#home'
 
-  resource :replies, controller: :reply, only: %i[create update], path: '/books/:book_id/discussions/:discussion_discussion_id/replies',
+  resource :replies, controller: :reply, only: %i[create], path: '/books/:book_id/discussions/:discussion_discussion_id/replies',
                      as: 'replies'
+  resource :replies, controller: :reply, only: %i[update], path: '/books/:book_id/discussions/:discussion_discussion_id/replies/:reply_id',
+                     as: 'reply'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
