@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for pranavrao-book-club-empty-sunset-247 on 2023-12-28T17:31:37-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "pranavrao-book-club-empty-sunset-247"
+primary_region = "yyz"
+console_command = "/rails/bin/rails console"
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+[[statics]]
+  guest_path = "/rails/public"
+  url_prefix = "/"
